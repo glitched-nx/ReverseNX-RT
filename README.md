@@ -1,53 +1,53 @@
 # ReverseNX-RT
 
-Alternative version of ReverseNX that can switch between handheld and docked mode in **R**eal **T**ime.
+Alternative Version von ReverseNX, die in **E**cht**z**eit zwischen Handheld- und Docked-Modus wechseln kann.
 
-Requires SaltyNX 0.7.0+ and Tesla environment installed. Links at the end of readme.
+Benötigt SaltyNX 0.7.0+ und installierte Tesla-Umgebung. Links am Ende der Readme.
 
-It's compatible with ReverseNX patches/ReverseNX-Tool 2.0.0+.
+Kompatibel mit ReverseNX-Patches/ReverseNX-Tool 2.0.0+.
 
-It's not compatible with deprecated ReverseNX plugin.
+Nicht kompatibel mit veraltetem ReverseNX-Plugin.
 
-**Do not use ReverseNX-RT next to Status Monitor 0.6.0 or older** (Tesla can crash on Atmosphere if you are using NX-FPS)
+**Verwende ReverseNX-RT nicht neben Status Monitor 0.6.0 oder älter** (Tesla kann auf Atmosphere abstürzen, wenn du NX-FPS verwendest)
 
-I'm not planning to add any more functionality to it. Next updates will only contain bug fixes.
+Ich plane nicht, weitere Funktionen hinzuzufügen. Zukünftige Updates werden nur Fehlerbehebungen enthalten.
 
-Overlay contains multiple modes, from which 2 are main ones, other are error notifications.
+Das Overlay enthält mehrere Modi, von denen 2 die Hauptmodi sind, die anderen sind Fehlerbenachrichtigungen.
 
 [![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/N4N5UMFN)
 
-# Main modes:
-- When running game and everything works as should:
+# Hauptmodi:
+- Wenn das Spiel läuft und alles wie erwartet funktioniert:
 
 ![Gra](https://i.imgur.com/ThUbEZ6.jpg) 
 
-You have only two options here:
-* Change system control (It also refers to ReverseNX-Tool flags - f.e. if you have docked flag set for this game in ReverseNX-Tool, when system control is enabled, it will force docked mode)
-* Change mode (disabled if system control is enabled)
+Du hast hier nur zwei Optionen:
+* Systemsteuerung ändern (Bezieht sich auch auf ReverseNX-Tool-Flags - z.B. wenn du das Docked-Flag für dieses Spiel in ReverseNX-Tool gesetzt hast, erzwingt es bei aktivierter Systemsteuerung den Docked-Modus)
+* Modus ändern (deaktiviert, wenn Systemsteuerung aktiviert ist)
 
-Game stays in current configuration until you will close game.
+Das Spiel bleibt in der aktuellen Konfiguration, bis du das Spiel schließt.
 
 ---
 
-# Error notifications:
-- **SaltyNX is not working!** - SaltyNX crashed or is not installed correctly.
-- **Game was closed! Overlay disabled! Exit from overlay and run game first!** - If you were using overlay in last running game and closed game without closing overlay, you need to close overlay to use it again.
-- **ReverseNX-RT is not running!** - plugin was not injected. It's either 32-bit game or is in SaltyNX exceptions list.
-- **Game doesn't support changing modes!** - plugin was injected and is working, but function for checking modes was not used. Either game doesn't have one (which means there is no difference between handheld and docked) or game just checks it later than when you wanted to check (for example game may not use it for few seconds after booting was finished). You need to exit from overlay and run it again later to check if error still occurs...
-- **WRONG MAGIC!** - something went horribly wrong and overlay is reading value from wrong memory position. It should not happen if you are opening overlay after game boot process will finish. It may also happen if you will close overlay before closing game and open it after running next game, this time not compatible with SaltyNX.
+# Fehlerbenachrichtigungen:
+- **SaltyNX funktioniert nicht!** - SaltyNX ist abgestürzt oder nicht korrekt installiert.
+- **Spiel wurde geschlossen! Overlay deaktiviert! Beende das Overlay und starte zuerst das Spiel!** - Wenn du das Overlay im letzten laufenden Spiel verwendet und das Spiel geschlossen hast, ohne das Overlay zu schließen, musst du das Overlay schließen, um es erneut zu verwenden.
+- **ReverseNX-RT läuft nicht!** - Plugin wurde nicht injiziert. Es ist entweder ein 32-Bit-Spiel oder befindet sich in der SaltyNX-Ausnahmeliste.
+- **Spiel unterstützt Moduswechsel nicht!** - Plugin wurde injiziert und funktioniert, aber die Funktion zum Überprüfen der Modi wurde nicht verwendet. Entweder hat das Spiel keinen (was bedeutet, dass es keinen Unterschied zwischen Handheld und Docked gibt) oder das Spiel überprüft es erst später, als du es überprüfen wolltest (z.B. verwendet das Spiel es möglicherweise erst ein paar Sekunden nach Abschluss des Bootvorgangs). Du musst das Overlay beenden und später erneut ausführen, um zu prüfen, ob der Fehler weiterhin auftritt...
+- **FALSCHE MAGIC!** - Etwas ist schrecklich schief gelaufen und das Overlay liest den Wert von der falschen Speicherposition. Das sollte nicht passieren, wenn du das Overlay öffnest, nachdem der Bootvorgang des Spiels abgeschlossen ist. Es kann auch passieren, wenn du das Overlay schließt, bevor du das Spiel beendest, und es nach dem Start des nächsten Spiels öffnest, das diesmal nicht mit SaltyNX kompatibel ist.
 
-# Troubleshooting:
-List of titles having compability issues with ReverseNX-RT:
+# Fehlerbehebung:
+Liste der Titel mit Kompatibilitätsproblemen mit ReverseNX-RT:
 
-| Title | Versions | Why? |
+| Titel | Versionen | Warum? |
 | ------------- | ------------- | ------------- |
-| Robotics;Notes Elite | 1.0.1 | Broken PopNotificationMessage() thread, not working at all |
+| Robotics;Notes Elite | 1.0.1 | Defekter PopNotificationMessage()-Thread, funktioniert überhaupt nicht |
 
-Q: Often when I'm closing game, Atmosphere crashes with error 0x41001. Why?
+Q: Oft stürzt Atmosphere beim Schließen des Spiels mit Fehler 0x41001 ab. Warum?
 
-A: Atmosphere 0.12.0 with new options for cheat engine bringed bug that causes showing this error in random instances. For some reason this overlay makes this bug occur more frequently. Either go back to 0.11.1 or update to newer version.
+A: Atmosphere 0.12.0 mit neuen Optionen für die Cheat-Engine brachte einen Fehler mit sich, der diesen Fehler in zufälligen Fällen anzeigt. Aus irgendeinem Grund lässt dieses Overlay diesen Fehler häufiger auftreten. Gehe entweder zurück zu 0.11.1 oder aktualisiere auf eine neuere Version.
 
-# Links:
+# Original Links:
 
 - https://github.com/masagrator/SaltyNX/releases
 - https://github.com/WerWolv/nx-ovlloader
